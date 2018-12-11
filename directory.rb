@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 
+$students = []
 
 def interactive_menu
-  students = []
+ 
   loop do
     print_menu
     selection = gets.chomp
@@ -11,9 +12,7 @@ def interactive_menu
     when "1"
       students = input_students
     when "2"
-      print_header
-      print(students)
-      print_footer(students)
+      show_students($students)
     when "9"
       exit # this will cause the program to terminate
     else
@@ -25,25 +24,28 @@ end
 def print_menu
   puts "1. Input the students"
   puts "2. Show the students"
-  puts "9. Exit" # 9 because we'll be adding more items  
+  puts "9. Exit" 
 end
-	
+
+def show_students(students)
+  print_header
+  print(students)
+  print_footer(students)
+end
 
 def input_students 
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
 
-  students = []
-
   name = gets.chomp
 
   while !name.empty? do
-    students << { name: name, cohort: :November }
-    puts "Now we have #{students.count} students"
+    $students << { name: name, cohort: :November }
+    puts "Now we have #{$students.count} students"
     name = gets.chomp
   end
 
-  students
+  $students
 
 end
 
