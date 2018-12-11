@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
-#print list of students
+#declare a variable
+student_count = 11
 
+#print list of students
 puts "The students of Villains Academy"
 puts "-------------"
 puts "Dr. Hannibal Lecter"
@@ -17,7 +19,4 @@ puts "Joffrey Baratheon"
 puts "Norman Bates"
 
 #print the total number of students
-print "Overall, we have"
-#it’s important that print() doesn’t add new line characters
-print 11
-print " great students"
+print "Overall, we have #{student_count} great students"
